@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>Web Developer | Paolo Chiodi</title>
+     <meta name="author" content="Paolo Chiodi" />
+     <meta name="keywords" content="Paolo Chiodi;Web;Developer;Web Developer;Ruby on Rails;Javascript;Erlang;html;xhtml;css;php;programming;blog">
+     <meta name="description" content="Web development articles, code and experiments by Paolo Chiodi">
+     <link rel="stylesheet" href="css/master.css" type="text/css" charset="utf-8">
+     <!--[if IE]>
+     <script src="js/html5enabler.js"></script>
+     <![endif]-->
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <a href="http://paolochiodi.github.com">Paolo Chiodi</a>
+        <span>web: javascript rails html css erlang</span>
+      </header>
+      <div id="home">
+        <h1>Html5 + Javascript Experiments</h1>
+        <ul>
+          <li>
+            <article>
+              <a href="jetris/main.html"><span>Jetris</span>: an attempt to a tetris clone (firefox, chrome, safari, opera)</a>
+            </article>
+          </li>
+          <li>
+            <article>
+              <span>IE experiments, studies about legacy ie markup as workaround for css3</span>
+              <ul>
+                <li>
+                  <a href="vml_experiments/rounded_corner.html"><span>Rounded Corners</span>: try to emulate css3 rounded corners with vml (ff, chrome, safari, opera, ie)</a>
+                </li>
+                <li>
+                  <a href="vml_experiments/html_content.html"><span>Html Content</span>: try to rotate text with vml (internet explorer)</a>
+                </li>
+              </ul>
+            </article>
+          </li>          
+          <li>
+            <article>
+              <span>HTML5 tests, working mainly in firefox</span>
+              <ul>
+                <li>
+                  <article>
+                    <a href="html5_experiments/video/video.xhtml"><span>Video</span>: experiments with html5 video, css3 and svg (firefox)</a>
+                  </article>
+                </li>
+                <li>
+                  <article>
+                    <a href="html5_experiments/asciitube/index.html"><span>Asciitube</span>: convert a video to ascii art realtime in your browser with javascript (ff chrome safari)</a>
+                  </article>
+                </li>
+                <li>
+                  <article>
+                    <a href="html5_experiments/db/index.html"><span>Db</span>: persisten client database in your browser with javascript (safari)</a>
+                  </article>
+                </li>
+                <li>
+                  <article>
+                    <a href="html5_experiments/geo/index.html"><span>Geo</span>: javascript geolocalization (firefox)</a>
+                  </article>
+                </li>
+                <li>
+                  <article>
+                    <a href="html5_experiments/jsboard/jsboard.html"><span>JsBoard</span>: a javascript whiteboard with html5 canvas (ff, safari, chrome, ie)</a>
+                  </article>
+                </li>
+                <li>
+                  <article>
+                    <a href="html5_experiments/show/index.xhtml"><span>The Show</span>: mockup of some html5 goodies (firefox)</a>
+                  </article>
+                </li>
+              </ul>
+            </article>
+          </li>
+        </ul>
+      </div>
+      <footer>
+        <section id="contact">
+          <em>Paolo Chiodi</em>
+          <span>Developer at <a href="http://bitmama.it/">Bitmama (Reply &amp; ArmandoTesta)</a></span>
+        </section>
+        <section id="links">
+          <a href="http://linkedin.com/paolochiodi/"><span>linkedin.com</span>/paolochiodi</a>
+          <a href="http://github.com/paolochiodi/"><span>github.com</span>/paolochiodi</a>
+          <a href="http://twitter.com/paolochiodi/"><span>twitter.com</span>/paolochiodi</a>
+        </section>
+      </footer>
+    </div>
+    <script type="text/javascript">      
+      (function() {
+      	var links = document.getElementsByTagName('a');
+      	var query = '?';
+      	for(var i = 0; i < links.length; i++) {
+      	if(links[i].href.indexOf('#disqus_thread') >= 0) {
+      		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+      	}
+      	}
+      	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/paolochiodi/get_num_replies.js' + query + '"></' + 'script>');
+      })();
+    </script>
+  </body>
+</html>

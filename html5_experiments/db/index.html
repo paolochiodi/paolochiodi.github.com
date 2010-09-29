@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Db | Paolo Chiodi html5 experiments</title>
+    <link rel="stylesheet" href="../css/layout.css" type="text/css" charset="utf-8" />
+    <style type="text/css" media="screen">
+      
+      #msgs {
+        list-style-image:none;
+        list-style-position:outside;
+        list-style-type:none;
+      }
+      
+      #msgs li {
+        margin: 10px 0;
+      }
+      
+      textarea {
+        width:500px;
+        height:100px;
+        color: #333;
+        font-size: 20px;
+      }
+      
+
+ 	
+    </style>
+    <script type="text/javascript" charset="utf-8">
+      
+      var offline_db = {
+        db:null,
+        row_count:0,
+        init: function(){
+          try{
+            if(!this.db){
+              this.db = window.openDatabase('Dbdb', '1.0', 'HTML5 Database API example', 200000);
+              if(this.db){
+                this.create();
+                return true;
+              }
+              else{
+                return false;
+              }
+            }
+            return true;            
+          }
+          catch(ex){
+            return false
+          }
+        },
+        create:function(created_callback){
+          if(this.init()){
+            this.db.transaction(function(tx) {
+              tx.executeSql("SELECT COUNT(*) FROM Messages", [], function(result) {
+                if(created_callback){
+                  created_callback();
+                }
+              }, 
+              function(tx, error) {
+                tx.executeSql("CREATE TABLE Messages (id REAL UNIQUE, msg TEXT, timestamp REAL)", [], function(result) {
+                  if(created_callback){
+                    created_callback();
+                  }
+                });
+              });
+            });
+            
+          }
+        },
+        load_messages:function(loaded_callback){
+          if(this.init()){
+            this.db.transaction(function(tx){
+              tx.executeSql("SELECT id, msg, timestamp FROM Messages", [], function(tx, result) {
+                var ret = [];
+                for (var i = 0, len = result.rows.length; i < len; ++i) {
+                  var row = result.rows.item(i);
+
+                  ret[ret.length] = {
+                    msg: row['msg'], 
+                    timestamp: row['timestamp']
+                  }
+                }
+                this.row_count = ret.length;
+                loaded_callback(ret);
+              });
+            });
+          }
+        },
+        save_message: function(msg, saved_callback, error_callback){
+          if(this.init()){
+            this.db.transaction(function(tx){
+              this.row_count++;
+              var ts = (new Date()).getTime();
+              tx.executeSql('INSERT INTO Messages (id, msg, timestamp) VALUES (?, ?, ?)', 
+                            [this.row_count, msg, ts], 
+                            function(tx, result){
+                              saved_callback(msg, ts);
+                            }, 
+                            function(tx, error){
+                              if(error_callback){
+                                error_callback();
+                              }
+                            });
+            });
+          }
+        },
+        clear_messages: function(cleared_callback, error_callback){
+          if(this.init()){
+            var self = this;
+            this.db.transaction(function(tx){
+              tx.executeSql('DELETE FROM Messages', [], function(){self.row_count=0;cleared_callback()}, function(){error_callback()});
+            });
+          }
+        },
+      }
+      
+      var local_storage = {
+        db_name:'html5_experiments',
+        init:function(){
+          if(typeof localStorage !== 'undefined'){
+            var db_name = this.db_name,
+                ls = localStorage[db_name];
+
+            try{
+              if(ls == null){
+                localStorage[db_name] = JSON.stringify([]);
+              }              
+            }
+            catch(ex){
+              localStorage[db_name] = JSON.stringify([]);
+            }
+            return true;  
+          }
+          return false;
+        },
+        load_messages:function(loaded_callback){
+          loaded_callback(JSON.parse(localStorage[this.db_name]));
+        },
+        save_message:function(msg, saved_callback, error_callback){
+          try{
+            var db_name = this.db_name,
+                ts = (new Date()).getTime(),
+                el = {
+                  msg:msg,
+                  timestamp:ts
+                },
+                storage = JSON.parse(localStorage[db_name]);
+
+            storage.push(el);
+            localStorage[db_name] = JSON.stringify(storage);
+
+            saved_callback(msg, ts);            
+          }
+          catch(ex){
+            error_callback();
+          }
+        },
+        clear_messages:function(cleared_callback, error_callback){
+          try{
+            localStorage[this.db_name] = JSON.stringify([]);
+            cleared_callback();
+          }
+          catch(ex){
+            error_callback();
+          }
+        }
+      }
+      
+      var db = null;
+      
+      window.onload = function(){
+        
+        if(offline_db.init()){
+          db = offline_db;
+        }
+        else{
+          if(local_storage.init()){
+            db = local_storage;
+          }
+        }
+        
+        document.getElementById('store').addEventListener('click', store_click, true);
+        document.getElementById('clear').addEventListener('click', clear_click, true);
+        
+        db.init();
+        db.load_messages(messages_loaded);
+      }
+
+      function store_click(){
+        db.save_message(document.getElementById('msg').value, message_saved, error_thrown);
+      }
+      
+      function clear_click(){
+        db.clear_messages(message_cleared, error_thrown);
+      }
+      
+      function messages_loaded(m){
+        
+        var frag = document.createDocumentFragment();
+        
+        for(var i=0, len = m.length; i < len; i++){
+          var el = m[i];
+          append_message(el.msg, el.timestamp, frag);
+        }
+        
+        document.getElementById('msgs').appendChild(frag);
+      }
+      
+      function message_saved(msg, ts){
+        append_message(msg, ts, document.getElementById('msgs'));
+        document.getElementById('msg').value = '';
+      }
+      
+      function message_cleared(){
+        var f = document.getElementById('msgs');
+        
+        while(f.hasChildNodes()){
+          f.removeChild(f.firstChild);
+        }
+        document.getElementById('msg').value = '';
+      }
+      
+      function append_message(msg, ts, father){
+        var l = document.createElement('li');
+        var t = document.createTextNode(new Date(ts) + ' >> ' + msg)
+        l.appendChild(t);
+        
+        if(father.hasChildNodes()){
+          father.insertBefore(l, father.firstChild);
+        }
+        else{
+          father.appendChild(l);
+        }
+      }
+      
+      function error_thrown(){
+        alert('error');
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>HTML5 <span>demo</span></h1>
+    </header>
+		<nav class="menu">
+			<ul>
+			  <li><a href="http://linkedin.com/paolochiodi" title="about me">About Me</a></li>
+        <li><a href="../show/index.xhtml" title="video">The HTML5 Show</a></li>
+        <li><a href="../jsboard/jsboard.html" title="jsboard">JSBoard</a></li>	
+        <li><a href="../geo/index.html" title="Geo">Geo</a></li>
+        <li class="active"><a href="../db/index.html" title="db">Db</a></li>
+        <li><a href="../asciitube/index.html" title="video">AsciiTube</a></li>
+        <li><a href="../video/video.xhtml" title="video">Video</a></li>
+        <li><a href="../../index.html" title="home">Home</a></li>
+      </ul>
+    </nav>
+    <section id="main">
+      <h2>Storeable Messages</h2>
+      <div>
+        <textarea id="msg"></textarea>
+        <nav class="footer">
+          <input id="store" type="button" value="store" />
+          <input class="last" id="clear" type="button" value="clear" />
+        </nav>
+      </div>
+      <ul id="msgs">
+      </ul>
+    </section>
+  </body>
+</html>

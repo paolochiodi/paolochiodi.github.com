@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg">
+  <clipPath id="c1" clipPathUnits="objectBoundingBox">
+    <circle cx="0.5" cy="0.5" r="0.25" id="circle"/>
+    <rect x="0" y="0" width="0.1" height="1" />
+  </clipPath>
+  <filter id="f1">
+    <fecolormatrix values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"/>
+  </filter>
+</svg>

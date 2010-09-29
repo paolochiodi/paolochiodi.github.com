@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Video | Paolo Chiodi html5 experiments</title>
+    <link rel="stylesheet" href="../css/layout.css" type="text/css" charset="utf-8" />
+    <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8"><![CDATA[
+    
+      document.onready = function(){
+        
+        var v = document.getElementById('firstVideo');
+        
+        v.addEventListener('ended', function(){ v.play(); }, true);
+        
+        document.getElementById('clear').onclick = function(){
+          v.removeAttribute('f');
+          v.removeAttribute('c');
+          v.removeAttribute('r');
+          v.removeAttribute('t');
+          return false
+        }
+        
+        document.getElementById('rotate_1').onclick = function(){
+          v.setAttribute('r', '1');
+          return false;
+        }
+        
+        document.getElementById('transform_1').onclick = function(){
+          v.setAttribute('t', '1');
+          return false;
+        }
+        
+        document.getElementById('clip_1').onclick = function(){
+          v.setAttribute('c', '1');
+          return false;
+        }
+        
+        document.getElementById('effect_1').onclick = function(){
+          v.setAttribute('f', '1');
+          return false;
+        }
+
+      }
+            
+      function test(){
+        var 
+          v = document.getElementById('firstVideo'),
+          prop = ['paused', 'muted', 'volume', 'duration', 'currentTime', 'readyState',
+                  'HAVE_METADATA', 'HAVE_CURRENT_DATA', 'networkState', 'NETWORK_LOADED', 'error', 'seeking', 'ended', 'autoplay',
+                  'videoWidth', 'videoHeight', 'HAVE_ENOUGH_DATA', 'NETWORK_LOADING', 'src', 'currentSrc', 'load', 'canPlayType',
+                  'autobuffer', 'play', 'pause', 'controls', 'width', 'height', 'NETWORK_EMPTY', 'NETWORK_IDLE',
+                  'NETWORK_NO_SOURCE', 'HAVE_NOTHING', 'HAVE_FUTURE_DATA'];
+        
+        for(var i = 0, len = prop.length; i < len; i++)
+        {
+          alert(prop[i] + ' - ' + v[prop[i]]);
+        }
+      }
+
+    ]]>
+    </script>
+    <style type="text/css" media="screen"><![CDATA[
+      
+      #firstVideo[r="1"]
+      {
+        -moz-transform: rotate(30deg); 
+      }
+      
+      #firstVideo[t="1"]
+      { 
+        -moz-transform: skewx(10deg) translatex(50px);
+        -moz-transform-origin: bottom center; 
+        -moz-perspective: 60;
+        -moz-perspective-origin: 10% 75%
+      }
+      
+      #firstVideo[c="1"]
+      { 
+        clip-path: url(resources.svg#c1);
+      }
+      
+      #firstVideo[f="1"]
+      { 
+        border:solid 2px red;
+        filter: url(#f1);
+      }
+      
+    ]]>
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>HTML5 <span>demo</span></h1>
+    </header>
+    <nav class="menu">
+      <ul>
+        <li><a href="http://linkedin.com/paolochiodi" title="about me">About Me</a></li>
+        <li><a href="../show/index.xhtml" title="video">The HTML5 Show</a></li>
+        <li><a href="../jsboard/jsboard.html" title="jsboard">JSBoard</a></li>	
+        <li><a href="../geo/index.html" title="Geo">Geo</a></li>
+        <li><a href="../db/index.html" title="db">Db</a></li>
+        <li><a href="../asciitube/index.html" title="video">AsciiTube</a></li>
+        <li class="active"><a href="../video/video.xhtml" title="video">Video</a></li>
+        <li><a href="../../index.html" title="home">Home</a></li>
+      </ul>
+    </nav>
+    <section id="main">
+      <video id="firstVideo" src="../media/video.ogv" autobuffer="" autoplay="" loop="" controls=""></video>
+      <nav class="footer">
+        <a id="clear" href="#" title="Clear">Clear</a>
+        <a id="rotate_1" href="#" title="Rotate">Rotate</a>
+        <a id="transform_1" href="#" title="Transform">Transform</a>
+        <a id="clip_1" href="#" title="Clip">Clip</a>
+        <a class="last" id="effect_1" href="#" title="Effect">Effect</a>
+      </nav>
+      <svg xmlns="http://www.w3.org/2000/svg" height="0">
+        <filter id="f1">
+          <feGaussianBlur stdDeviation="3"/>
+        </filter>
+      </svg>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <style>
+      v\:* { behavior: url(#default#VML); }
+    </style>
+    <script>
+      var angle=0, spin;
+
+      function rotate(){
+        try{
+          angle += 2;
+          spin.style.rotation = angle + "deg";
+          setTimeout(rotate, 100);
+        }
+        catch(e){}
+      }
+      
+      window.onload = function(){
+        spin = document.getElementById("spin");
+        rotate();
+      }
+
+    </script>
+  </head>
+  <body>
+    <div style="width:150;height:150">
+    <v:rect id="spin" style="width:100;height:100;" strokecolor="blue">
+      <v:textbox>
+        <div>test</div>
+      </v:textbox>
+    </v:rect>
+    </div>
+  </body>
+</html>

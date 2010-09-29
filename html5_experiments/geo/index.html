@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geo | Paolo Chiodi html5 experiments</title>
+    <link rel="stylesheet" href="../css/layout.css" type="text/css" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      
+      var doc = document,
+          latitude = 0,
+          longitude = 0;
+          
+      
+      window.onload = function(){
+        
+        doc.getElementById('locate').addEventListener('click', function(){
+          
+          navigator.geolocation.getCurrentPosition(located);
+          
+        }, true);
+        
+      }
+      
+      function located(position){
+
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        
+        var t = doc.createTextNode(latitude + ', ' + longitude);
+        var s = doc.getElementById('position');
+        
+        while(s.hasChildNodes())
+          s.removeChild(s.firstChild);
+          
+        s.appendChild(t);
+      }
+      
+    </script>
+  </head>
+	<body>
+    <header>
+      <h1>HTML5 <span>demo</span></h1>
+    </header>
+    <nav class="menu">
+      <ul>
+        <li><a href="http://linkedin.com/paolochiodi" title="about me">About Me</a></li>
+        <li><a href="../show/index.xhtml" title="video">The HTML5 Show</a></li>
+        <li><a href="../jsboard/jsboard.html" title="jsboard">JSBoard</a></li>	
+        <li class="active"><a href="../geo/index.html" title="Geo">Geo</a></li>
+        <li><a href="../db/index.html" title="db">Db</a></li>
+        <li><a href="../asciitube/index.html" title="video">AsciiTube</a></li>
+        <li><a href="../video/video.xhtml" title="video">Video</a></li>
+        <li><a href="../../index.html" title="home">Home</a></li>
+      </ul>
+    </nav>
+    <section id="main">
+      <h2>Your position: <span id="position"></span></h2>
+      <nav class="footer">	
+        <input class="last" type="button" id="locate" value="findme" />
+      </nav>
+    </section>
+  </body>
+</html>

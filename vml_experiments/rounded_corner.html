@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+<?import namespace="v" urn="urn:schemas-microsoft-com:vml" implementation="#default#VML" ?>
+  <head>
+    <style> 
+      v\: roundrect { behavior: url(#default#VML); }
+      
+      #test{
+        width:100px;
+        height:20px;
+        display:block;
+        text-align:center;
+      }
+      
+      #test2{
+        display:block;
+        color:#fff;
+        height:100%;
+        width:100%;
+      }
+      
+      v\:roundrect#test[fillcolor]{
+        background:red;
+        border:solid 1px blue;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+      }
+      
+      v\:roundrect#test2[fillcolor]{
+        background:#000;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+      }
+      
+      v\:roundrect.corner[fillcolor]{
+        display:none;
+      }
+      
+      .corner{
+        position:relative;
+        width:50px;
+        height:50px;
+      }
+      
+      .tl{top:0px;left:0px;}
+      .tt{top:0px;right:0px;}
+      .bl{bottom:0px;left:0px;}
+      .br{bottom:0px;right:0px;}
+      
+      .rounded{
+        background:#000;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        color:#fff;
+      }
+    </style>
+  </head>
+  <body>
+    <v:roundrect id="test" arcsize="0.3" strokecolor="blue" fillcolor="red">
+      <span>Bottone</span>
+    </v:roundrect>
+    <v:roundrect id="test2" strokecolor="blue" arcsize="0.3" fillcolor="#000">
+      <span>
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+      </span>
+    </v:roundrect>
+    <br /><br />
+    <div class="rounded">
+      <v:roundrect class="corner tl" width="50px" height="50px" strokecolor="blue" arcsize="0.2" fillcolor="red"></v:roundrect>
+      <v:roundrect class="corner tr" strokecolor="blue" arcsize="0.2" fillcolor="red"></v:roundrect>
+      <v:roundrect class="corner bl" strokecolor="blue" arcsize="0.2" fillcolor="red"></v:roundrect>
+      <v:roundrect class="corner br" strokecolor="blue" arcsize="0.2" fillcolor="red"></v:roundrect>
+      <span>
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+        Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet.
+      </span>
+    </div>
+  </body>
+</html>

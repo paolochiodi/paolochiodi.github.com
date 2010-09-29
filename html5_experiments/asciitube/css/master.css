@@ -1,0 +1,58 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial;
+}
+
+/*
+* performance index
+*/
+#fps{
+  display:none;
+}
+
+/*
+* container of ascii art
+*/
+#ascii{
+  height:360px;
+  width:642px;
+  margin:0 auto;
+  font-family:Courier;
+  background-color:#222222;
+}
+
+/*
+* canvas and video player
+*/
+#partialVideo, #video{
+  display:none;
+}
+
+/*
+* buttons container
+*/
+#buttons{
+  margin-top:20px;
+  text-align:center;
+}
+
+/*
+* buttons
+*/
+#buttons a{
+  display:block;
+  width:70px;
+  padding:4px 0;
+  margin:0 auto;
+  background-color:#333333;
+  color:#fff;
+  text-transform:uppercase;
+  text-decoration:none;
+  border-radius:4px;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+}

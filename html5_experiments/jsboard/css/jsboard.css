@@ -1,0 +1,115 @@
+*
+{
+  margin:0;
+  padding:0;
+}
+
+#d_h1
+{
+  height:65px;
+  border-bottom: solid 2px #333;
+  clear:both;
+}
+
+#d_h1 a
+{
+  float:left;
+  height:48px;
+  width:48px;
+  margin: 10px 10px 10px 10px;
+  border:solid 1px transparent;
+  background-position: center center;
+  background-repeat:no-repeat;
+}
+
+#d_f
+{
+  clear:both;
+}
+
+.tools
+{
+  float:left;
+  margin: 10px 10px 10px 10px;
+}
+
+#t_width a, #t_color a
+{
+  float:left;
+  height:20px;
+  width:20px;
+  margin: 0px 10px 0px 10px;
+  border: solid 2px transparent;
+  background-position: center center;
+  background-repeat:no-repeat;
+}
+
+.layer
+{
+  border:solid 1px transparent;
+}
+
+.layer_hover
+{
+  border-color:red;
+}
+
+.layer_hover .close
+{
+  float:right;
+  height:48px;
+  width:48px;
+  margin: 5px 5px 0 0;
+  background-position: center center;
+  background-repeat:no-repeat;
+  background-image:url(../icons/edit-delete.png);
+}
+
+.l_text{
+  position:absolute;
+}
+
+a.selected
+{
+  border-color:#fff !important;
+}
+
+#select{
+  background-image:url(../icons/graphics-svg-editor.png);
+}
+
+#matita{
+  background-image:url(../icons/applications-graphics.png);
+}
+
+#testo{
+  background-image:url(../icons/format-justify-right.png);
+}
+
+#gomma{
+  background-image:url(../icons/input-keyboard.png);
+}
+
+#pulisci{
+  background-image:url(../icons/dialog-cancel.png);
+}
+
+#width1{
+  background-image:url(../icons/line1.png);
+}
+
+#width2{
+  background-image:url(../icons/line2.png);
+}
+
+#width3{
+  background-image:url(../icons/line3.png);
+}
+
+#width4{
+  background-image:url(../icons/line4.png);
+}
+
+#width5{
+  background-image:url(../icons/line5.png);
+}

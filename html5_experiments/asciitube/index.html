@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ASCIITube | Paolo Chiodi html5 experiments</title>
+    <link rel="stylesheet" href="css/master.css" type="text/css">
+    <link rel="stylesheet" href="../css/layout.css" type="text/css" charset="utf-8" />
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/processor.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <header>
+      <h1>HTML5 <span>demo</span></h1>
+    </header>
+    <nav class="menu">
+      <ul>
+        <li><a href="http://linkedin.com/paolochiodi" title="about me">About Me</a></li>
+        <li><a href="../show/index.xhtml" title="video">The HTML5 Show</a></li>
+        <li><a href="../jsboard/jsboard.html" title="jsboard">JSBoard</a></li>	
+        <li><a href="../geo/index.html" title="Geo">Geo</a></li>
+        <li><a href="../db/index.html" title="db">Db</a></li>
+        <li class="active"><a href="../asciitube/index.xhtml" title="video">AsciiTube</a></li>
+        <li><a href="../video/video.xhtml" title="video">Video</a></li>
+        <li><a href="../../index.html" title="home">Home</a></li>
+      </ul>
+    </nav>
+    <section id="main">
+      <span id="fps">0</span>
+      <div id="ascii"></div>
+      <video id="video" height="360" width="640" autobuffer="true">
+        <source src="../media/video.mp4" type="video/mp4" />
+        <source src="../media/video.ogv" type="video/ogg" />
+      </video>
+      <canvas id="partialVideo" height="360" width="640" />
+    </section>
+    <nav class="footer">
+      <a id="play" class="last" href="#">Play</a>
+      <a id="pause" class="last" href="#" style="display:none">Pause</a>
+    </nav>
+  </body>
+</html>

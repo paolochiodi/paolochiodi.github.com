@@ -1,0 +1,144 @@
+
+p{
+  margin: 20px 0;
+}
+
+#mirrorVideo {
+  border: solid 2px #333;
+  margin: 0 auto;
+}
+
+#wait {
+  font-size: 3em;
+}
+
+#video, #partialVideo {
+  display:none;
+}
+
+circle {
+  stroke: #C12E1B;
+  stroke-width: 5px;
+  fill-opacity: 0;
+}
+
+path {
+  fill: #C12E1B;
+  stroke: #C12E1B;
+}
+
+#stopButton path {
+  stroke-width: 10px;
+}
+
+#player {
+  display: none;
+  margin: 0 500px 0 ;
+  text-align: center;
+}
+
+#player>div{
+  position:relative;
+}
+
+#playButton[play="true"] {
+  display:none;
+}
+
+#stopButton {
+  display:none;
+  opacity: 0.3;
+}
+
+#stopButton[play="true"] {
+  display: block;
+}
+
+svg {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+
+#stopButton:hover {
+  opacity: 1;
+}
+
+#playButton:hover circle {
+  stroke-width: 10;
+}
+
+#patterns {
+  text-align: center;
+  width: 372px;
+}
+
+#patterns ul {
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+}
+
+#patterns li{
+  float:left;
+  margin-right:50px;
+margin-top:15px;
+}
+
+#patterns li canvas,
+#patterns li img,
+#patterns li video {
+  border: 5px solid #fff;
+  display:block;
+}
+
+*[pattern="true"] {
+  border: 5px solid #C12E1B !important;
+}
+
+div[bg_chosen="true"] {
+  border: 5px solid #C12E1B !important;
+}
+
+
+#backgrounds {
+  text-align: center;
+  width: 372px;
+}
+
+#backgrounds ul {
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+}
+
+#backgrounds li{
+  float:left;
+  margin-right:50px;
+	margin-top:15px;
+}
+
+#backgrounds li div{
+  border: 5px solid #fff;
+  height: 150px;
+  width: 150px;
+  display:block;
+}
+
+#pong {
+  background: white;
+}
+
+br {
+  clear: both;
+}
+
+a img {
+  border: 0px;
+  margin-top: 1em;
+}
+
+#nofirefoxbeta {
+  display: none;
+}

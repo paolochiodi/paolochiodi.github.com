@@ -1,0 +1,121 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>The Html5 Show | Paolo Chiodi html5 experiments</title>
+    <link href="css/master.css" type="text/css" rel="stylesheet"></link>
+    <script type="text/javascript" src="js/processor.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript" src="js/pong.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" href="../css/layout.css" type="text/css" charset="utf-8" />
+  </head>
+  <body>
+    <header>
+      <h1>HTML5 <span>demo</span></h1>
+    </header>
+    <nav class="menu">
+      <ul>
+        <li><a href="http://linkedin.com/paolochiodi" title="about me">About Me</a></li>
+        <li class="active"><a href="../show/index.xhtml" title="video">The HTML5 Show</a></li>
+        <li><a href="../jsboard/jsboard.html" title="jsboard">JSBoard</a></li>	
+        <li><a href="../geo/index.html" title="Geo">Geo</a></li>
+        <li><a href="../db/index.html" title="db">Db</a></li>
+        <li><a href="../asciitube/index.html" title="video">AsciiTube</a></li>
+        <li><a href="../video/video.xhtml" title="video">Video</a></li>
+        <li><a href="../../index.html" title="home">Home</a></li>
+      </ul>
+    </nav>
+    <section id="main">
+      <p>
+        <em>Only Open Web technologies inside!</em> (based on the work of <a href="http://people.mozilla.com/~prouget/demos/DynamicContentInjection/play.xhtml">Paul Rouget</a>)
+      </p>
+      <video id="video" src="../media/main.ogg" width="400" height="300" autobuffer="true"/>
+      <canvas id="partialVideo"/>
+      <div style="clear:both; margin:0 auto 10px auto;width:400px" id="player">
+        <h3>Click to play:</h3>
+        <div>
+          <canvas id="mirrorVideo"/>
+          <svg id="playButton" xmlns="http://www.w3.org/2000/svg" width="400" height="300">
+            <path d="M 190 170 L 220 150 L 190 130"/>
+            <circle id="playButtonCircle" cx="200" cy="150" r="40" />
+          </svg>
+          <svg id="stopButton" xmlns="http://www.w3.org/2000/svg" width="400" height="300">
+            <path d="M 190 170 L 190 130"/>
+            <path d="M 210 170 L 210 130"/>
+            <circle id="stopButtonCircle" cx="200" cy="150" r="40" />
+          </svg>
+        </div>
+      </div>
+      <nav class="patterns">
+        <div id="patterns">
+          <h3>Choose a pattern:</h3>
+          <ul>
+            <li>
+              Image:
+              <br/>
+              <img id="logo" width="150" height="150" src="../media/bitmama.png" bg="1" />
+            </li>
+            <li class="pari">
+              Transparent:
+              <br/>
+              <img id="logo_tr" width="150" height="150" src="../media/bitmama.png" bg="0" />
+            </li>
+            <li>
+              Video:
+              <br/>
+              <video id="tiny_video" controls="true" width="150" height="150" src="../media/video.ogv" autobuffer="true"/>  
+            </li>
+            <li class="pari">
+              Canvas:
+              <br/>
+              <canvas id="pong" width="150" height="150" bg="1" />
+            </li>
+            <li>
+              Your text:
+              <br/>
+              <canvas id="yourtext" width="150" height="150" bg="0" />
+              <input id="message"/>
+            </li>
+            <li class="pari">
+              Your drawing:
+              <br/>
+              <canvas id="yourdrawing" width="150" height="150" bg="0" />
+              <input id="clear" value="clear" type="button" />
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <nav class="background">
+        <div id="backgrounds">
+          <h3>Choose a Background</h3>
+          <ul>
+            <li>
+              White
+              <div id="bg_white" style="background: white" />
+            </li>
+            <li class="pari">
+              Red
+              <div id="bg_red" style="background:#C12E1B" />
+            </li>
+            <li>
+              Image
+              <div id="bg_blue" style="background: url(../media/bitmama.gif) #fff center 25% no-repeat;" />
+            </li>
+            <li class="pari">
+              Image
+              <div id="bg_image" style="background: url(../media/sfondo.jpg) #fff center center no-repeat;" />
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+    <div class="license">
+      <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">
+        <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/us/88x31.png" />
+      </a>
+      This work is licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">
+        Creative Commons Attribution 3.0 United States License
+      </a>
+    </div>
+  </body>
+</html>

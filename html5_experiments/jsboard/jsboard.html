@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>JSBoard | Paolo Chiodi html5 experiments</title>
+    <script type="text/javascript" language="javascript" src="js/excanvas.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jquery.farbtastic.js"></script>
+    <link type="text/css" rel="Stylesheet" href="css/jsboard.css" />
+    <link type="text/css" rel="stylesheet" href="css/farbtastic.css" />
+	  <link rel="stylesheet" href="../css/layout.css" type="text/css" charset="utf-8" />
+    <script type="text/javascript" language="javascript" src="js/jsboard.js"></script>
+    <script type="text/javascript" language="javascript" src="js/utility.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>HTML5 <span>demo</span></h1>
+    </header>
+    <nav class="menu">
+      <ul>
+        <li><a href="http://linkedin.com/paolochiodi" title="about me">About Me</a></li>
+        <li><a href="../show/index.xhtml" title="video">The HTML5 Show</a></li>
+        <li class="active"><a href="../jsboard/jsboard.html" title="jsboard">JSBoard</a></li>	
+        <li><a href="../geo/index.html" title="Geo">Geo</a></li>
+        <li><a href="../db/index.html" title="db">Db</a></li>
+        <li><a href="../asciitube/index.html" title="video">AsciiTube</a></li>
+        <li><a href="../video/video.xhtml" title="video">Video</a></li>
+        <li><a href="../../index.html" title="home">Home</a></li>
+      </ul>
+    </nav>
+    <section class="bit" id="main">
+      <div id="d_h1">
+        <a id="select" href="#" title="Seleziona"></a>
+        <a id="matita" href="#" title="Matita"></a>
+        <a id="testo" href="#" title="Testo"></a>
+        <a id="gomma" href="#" title="Gomma"></a>
+        <a id="pulisci" href="#" title="Pulisci"></a>
+      </div>
+      <div style="position:relative" id="d_container">
+        <canvas id="cvMain"></canvas>
+      </div>
+      <nav class="footer">	
+        <div id="d_f">
+          <div id="t_width" class="tools">
+            <a id="width1" href="#" title="1"></a>
+            <a id="width2" href="#" title="2"></a>
+            <a id="width3" href="#" title="3"></a>
+            <a id="width4" href="#" title="4"></a>
+            <a id="width5" href="#" title="5"></a>
+          </div>
+          <div id="t_font" class="tools">
+            <select id="fontFamily">
+              <option value="Arial,Sans-Serif" style="font-family: Arial,Sans-Serif;">Arial</option>
+              <option value="Verdana,Sans-Serif" style="font-family: Verdana,Sans-Serif;" selected="selected">Verdana</option>
+              <option value="Times,Serif" style="font-family: Times,Serif;">Times</option>
+              <option value="Courier,Monospace" style="font-family: Courier,Monospace;">Courier</option>
+              <option value="Comic Sans MS,Cursive" style="font-family: Comic Sans MS,Cursive;">Comic Sans</option>               
+            </select>
+            <select id="fontSize">
+              <option value="8px">8px</option>
+              <option value="10px">10px</option>
+              <option value="12px">12px</option>
+              <option value="14px" selected="selected">14px</option>
+              <option value="20px">20px</option>
+              <option value="30px">30px</option>
+              <option value="50px">50px</option>
+              <option value="70px">60px</option>
+              <option value="80px">70px</option>
+            </select>
+          </div>
+          <div id="t_color" class="tools">
+            <div><a href="#" id="color"></a></div>
+          </div>
+        </div>
+      </nav>
+    </section>
+  </body>
+</html>
