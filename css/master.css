@@ -17,7 +17,7 @@
 /*
 * html5 enabler
 */
-header, footer, nav, article {display:block;}
+header, footer, nav, article, section {display:block;}
 
 /*
 * Common
@@ -90,9 +90,17 @@ footer #contact, footer #links{
   font-size:0.9em;
 }
 
-footer #contact span, footer #links a{
+footer #contact{
+  padding: 5px 0
+}
+
+footer #contact span{
   font-size:0.8em;
   display:block;
+}
+
+footer #links a{
+  font-size:0.8em;
 }
 
 /* ======================= */
