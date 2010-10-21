@@ -3,7 +3,7 @@
   <head>
     <style>
       *{margin:0;padding:0;}
-      body{margin:0;padding:0;}
+      body{margin:0;padding:0;font-family:geneva,verdana;}
       div{overflow:hidden;}
       canvas{
         border:solid 2px #2f2f2f;
@@ -13,10 +13,26 @@
         -webkit-border-radius:6px;
         border-radius:6px;
       }
+      #canvas_container, #info_container{float:left;}
+      #info_container{margin:10px 0;}
     </style>
   </head>
   <body>
-    <div><canvas height="400" width="300" id="viewport"></canvas></div>
+    <div id="canvas_container"><canvas height="400" width="300" id="viewport"></canvas></div>
+    <div id="info_container">
+      <h1>Jetris</h1>
+      Use arrow keys:
+      <ul>
+        <li><b>Up:</b> rotate element</li>
+        <li><b>Down:</b> go to floor</li>
+        <li><b>Left:</b> move left</li>
+        <li><b>Right:</b> move right</li>
+      </ul>
+      <br>
+      <p>Sorry, but for now no score nor levels :(</p>
+      <br>
+      <p>Oh, and this is to <a href="../">go back &lt;</a></p>
+    </div>
     <script src="js/block.js" charset="utf-8"></script>
     <script src="js/shape.js" charset="utf-8"></script>
     <script src="js/square.js" charset="utf-8"></script>

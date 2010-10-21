@@ -140,8 +140,6 @@ World.prototype.tick = function(){
 
   if(!s.alive){
     this.currentShape = this.getRandomShape();
-    
-    //check for losing condition
   }
     
   this.render();
