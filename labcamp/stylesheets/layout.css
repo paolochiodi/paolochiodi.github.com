@@ -1,0 +1,234 @@
+
+/**** RESET ****/
+html{color:#000;background:#fff;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;font-variant:normal;}sup {vertical-align:text-top;}sub {vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}body {font:11px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}table {font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
+
+/*set block html5 tags */
+section, header, footer, aside, nav{display:block;}
+/*clearFix*/
+.clearfix:after {  content: ".";  display: block;  height: 0;  clear: both;  visibility: hidden;}
+.clearfix { _display: inline-block; }
+.clearfix {zoom: 1;  _display: block;}
+
+
+html{ 
+  height:100%; 
+  min-height:100%;
+}
+
+body{
+  background:#000;
+  height:100%;
+  font-size:10px;
+}
+
+.wrapper{
+  width:980px;
+  margin:0 auto;
+}
+
+.canvas{
+  width:980px;
+  height:487px;
+  position:relative;
+}
+
+.cover{
+	width:980px;
+	height:487px;
+	position:absolute; 
+  background:url('../images/cornice.png') 0 0 no-repeat;
+  z-index:99;
+}
+
+.canvas .carousel{
+  width:980px;
+  height:487px;
+  overflow:hidden;
+  position:relative;
+}
+
+.canvas .carousel ul{
+  width:100000px;
+  position:absolute;
+  height:487px;
+  left:980px;
+  
+  /* animazione dello slider di immagini */
+  -moz-transition: left 0.3s ease-in-out;
+  -o-transition: left 0.3s ease-in-out;
+	-webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-out;
+  
+  /* l'animazione parte dopo che l'abstract è stato nascosto */
+  -moz-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
+	-webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+  
+}
+.canvas .carousel ul li{
+  float:left;
+  width:980px;
+  height:487px;
+  position:relative;
+  overflow:hidden;
+}
+
+.canvas .carousel ul li .images{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:9;
+}
+
+.canvas .carousel ul li .abstract{
+  position:absolute;
+  top:120px;
+  right:-500px;
+  z-index:999;
+  color:#fff;
+  cursor:pointer;
+  overflow:hidden;
+  width:500px;
+  padding-top:30px;
+  
+  /* animazione che nasconde l'abstract */
+  -moz-transition: right 0.1s ease-in-out;
+  -o-transition: right 0.1s ease-in-out;
+	-webkit-transition: right 0.1s ease-in-out;
+  transition: right 0.1s ease-out;
+}
+
+.canvas .carousel ul li.open .abstract{
+  right:0px;
+
+  /* animazione che mostra l'abstract */
+  -moz-transition: right 0.1s ease-in-out;
+  -o-transition: right 0.1s ease-in-out;
+	-webkit-transition: right 0.1s ease-in-out;
+  transition: right 0.1s ease-out;
+  
+  /*
+   * l'animazione deve partire dopo che l'abstract dell'immagine precedente è stato nascosto
+   * e che lo slider si è mosso per mostrare la nuova immagine
+  */
+  -moz-transition-delay: 0.4s;
+  -o-transition-delay: 0.4s;
+	-webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+.canvas .carousel ul li .abstract h1{
+  background:#000;
+  padding:10px;
+  margin-bottom:20px;
+  font-family:"TradeGothicBold"; /* utilizza il font specificato con @font-face */
+  font-size:2em;
+  line-height:1em; 
+  color:#59C816;
+}
+
+.canvas .carousel ul li .abstract h1 span{
+  display:block;
+  font-size:0.8em;
+  color:#fff;
+}
+
+.canvas .carousel ul li .abstract p{
+  background:#000;
+  padding:5px 10px;
+  float:right;
+}
+
+
+.canvas .carousel ul li .abstract .hover{ 
+  position:absolute; 
+  top:0px; 
+  right:-200px; 
+  background:rgba(0,0,0,0.7); /* usa un colore con trasparenza per lo sfondo */
+  padding:5px 10px;
+  
+  /* animazione che fa comparire/scomparire il tooltip "click to drill down" */
+  
+	-moz-transition: right 0.1s ease-in-out;
+  -o-transition: right 0.1s ease-in-out;
+	-webkit-transition: right 0.1s ease-in-out;
+  transition: right 0.1s ease-out;
+	
+}
+
+
+@-webkit-keyframes blur {
+
+    from {
+      color:rgba(255, 255, 255, 0.8);
+    }
+
+    50%{
+      color:rgba(255, 255, 255, 0.8);
+    }
+
+    to {
+      color:rgba(255, 255, 255, 1);
+    }
+}
+
+.canvas .carousel ul li .abstract:hover .hover{
+  right:24px;
+}
+
+
+.wrap-paginator{
+  position:absolute;
+  bottom:20px;
+  right:20px;
+  z-index:999;
+  padding-top:30px;
+  overflow:hidden;
+  width:150px;
+}
+
+.paginator{
+  float:right;
+}
+
+.paginator li{
+  float:left;
+}
+
+.paginator li a{
+  display:block;
+  width:19px;
+  height:19px;
+  text-indent:-5000px;
+}
+
+.paginator li.prev a{
+/*  background:url('../images/arrow_left.jpg') 0 0 no-repeat;
+  margin-right:3px;*/
+}
+
+.paginator li.next a{
+/*  background:url('../images/arrow_right.jpg') 0 0 no-repeat;*/
+}
+
+.wrap-paginator .hover{
+	right:-100px;
+	position:absolute;
+	top:0;
+	background:rgba(0,0,0,0.7); /* usa un colore con trasparenza per lo sfondo */
+	color:#fff;
+	display:block;
+	width:60px;
+	padding:5px 10px;
+	z-index:999;
+	
+	/* animazione che fa comparire/scomparire il tooltip "click to scroll" */	
+	-moz-transition: right 0.1s ease-in-out;
+  -o-transition: right 0.1s ease-in-out;
+	-webkit-transition: right 0.1s ease-in-out;
+  transition: right 0.1s ease-out;
+}
+.wrap-paginator:hover .hover{
+  right:5px;
+}

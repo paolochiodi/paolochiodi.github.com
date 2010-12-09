@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Labcamp 25/11/2010</title>
+    <link rel="stylesheet" href="stylesheets/layout.css" type="text/css"> 
+    <link rel="stylesheet" href="stylesheets/TradeGothic/stylesheet.css" type="text/css">
+    <script>
+      var d=document;d.createElement('header');d.createElement('footer');d.createElement('section');d.createElement('nav');d.createElement('article');d.createElement('canvas');d.createElement('aside');
+    </script>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-10675353-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="canvas">
+        <div class="cover"></div>
+        <div class="carousel">
+          <ul id="slider">
+             <li>
+                <video width="980" height="487" poster="images/poster.jpg" autoplay>
+                    <source src="video/cloud.mp4" type="video/mp4"></source>
+                    <source src="video/cloud.ogv" type="video/ogg"></source>
+                    <!--[if gt IE 6]>
+                    <object width="640" height="375" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"><!
+                    [endif]--><!--[if !IE]><!-->
+                    <object width="980" height="487" type="video/quicktime" data="video/cloud.mp4">
+                    <!--<![endif]-->
+                    <param name="src" value="video/cloud.mp4" />
+                    <param name="autoplay" value="true" />
+                    <param name="showlogo" value="false" />
+                    <object width="980" height="487" type="application/x-shockwave-flash"
+                        data="player.swf?autostart=true&amp;image=poster.jpg&amp;file=video/cloud.mp4">
+                        <param name="movie" value="player.swf?autostart=true&amp;image=poster.jpg&amp;file=video/cloud.mp4" />
+                        <!-- fallback image -->
+                        <img src="images/poster.jpg" width="980" height="487" alt="Big Buck Bunny"
+                             title="No video playback capabilities, please download the video below" />
+                    </object><!--[if gt IE 6]><!-->
+                    </object><!--<![endif]-->
+                </video>
+                <div class="abstract">
+                  <span class="hover">click to drill down</span>
+                  <h1>
+                    <span>Automotive</span>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                  </h1>
+                  <p>Supply Chain Execution</p>
+                </div>
+              </li>
+            <li>
+              <img class="images" src="images/canvas/01.jpg" width="980" height="487" alt="01">
+              <div class="abstract">
+                <span class="hover">click to drill down</span>
+                <h1>
+                  <span>Automotive</span>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                </h1>
+                <p>Supply Chain Execution</p>
+              </div>
+            </li>
+            <li>
+              <img class="images" src="images/canvas/02.jpg" width="980" height="487" alt="01">
+              <div class="abstract">
+                <span class="hover">click to drill down</span>
+                <h1>
+                  <span>Automotive</span>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                </h1>
+                <p>Supply Chain Execution</p>
+              </div>
+            </li>
+            <li>
+              <img class="images" src="images/canvas/03.jpg" width="980" height="487" alt="01">
+              <div class="abstract">
+                <span class="hover">click to drill down</span>
+                <h1>
+                  <span>Automotive</span>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                </h1>
+                <p>Supply Chain Execution</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div clasS="wrap-paginator">
+          <ul class="paginator">
+            <svg id="previous" xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="url(#RedG)">
+              <path d="M 0 0 L 0 19 L 19 19 L 19 0" fill="url(#back)" />
+              <path d="M 13 13 L 6 10 L 13 6" fill="white" />
+              <linearGradient id="back" x1="0%" x2="0%" y1="0%" y2="100%">
+                <stop stop-color="#2b2b2b" offset="0"/>
+                <stop stop-color="#696969" offset="100%"/>
+              </linearGradient>
+            </svg>
+            <svg id="next" xmlns="http://www.w3.org/2000/svg" width="19" height="19">
+              <path d="M 0 0 L 0 19 L 19 19 L 19 0" fill="url(#back)" />
+              <path d="M 6 13 L 13 10 L 6 6" fill="white" />
+            </svg>
+            <!--
+            <li id="previous" class="prev"><a href="#">previous</a></li>
+            <li id="next" class="next"><a href="#">next</a></li>
+            -->
+          </ul>
+          <span class="hover">click to scroll</span>
+        </div>
+      </section>
+    </div>
+    <script>
+  
+      var status = 0;
+    
+      window.onload = function(){
+
+        /* scatena le animzioni per l'effetto in ingresso sul load della pagina */
+        document.getElementById('slider').style.left = '0px'
+        document.querySelectorAll('#slider li')[0].className = 'open';
+      
+        document.getElementById('previous').onclick = function(){
+          if(status > 0){          
+            var lis = document.querySelectorAll('#slider li');
+          
+            /* nasconde l'abstract dell'immagine corrente */
+            lis[status].className = '';
+            
+            status--;
+            
+            /* mostra l'abstract dell'immagine precedente */
+            lis[status].className = 'open';
+            
+            /* muove lo slider per mostrare l'immagine precedente */
+            document.getElementById('slider').style.left = (status * -980) + 'px';
+          }
+          return false;
+        }
+      
+        document.getElementById('next').onclick = function(){        
+          if(status < 3){
+            var lis = document.querySelectorAll('#slider li');
+          
+            /* nasconde l'abstract dell'immagine corrente */
+            lis[status].className = '';
+            
+            status++;
+            
+            /* mostra l'abstract dell'immagine successiva */
+            lis[status].className = 'open';
+            
+            /* muove lo slider per mostrare l'immagine precedente */
+            document.getElementById('slider').style.left = (status * -980) + 'px';
+          }
+          return false;
+        }
+      
+      }
+    </script>
+  </body>
+</html>
